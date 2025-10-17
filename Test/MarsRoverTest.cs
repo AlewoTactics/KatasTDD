@@ -88,4 +88,18 @@ public class MarsRoverTest
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("0:0:S");
     }
+    
+
+    [Fact]
+    public void Debe_Girar_Izquierda()
+    {
+        //arrange
+        var marsRovers = new MarsRover();
+        //act
+        marsRovers.RealizarMovimientos("L");
+        //assert
+        marsRovers.ObtenerUbicacion().Should().Be("0:0:W");
+    }
+    
+    
 }
