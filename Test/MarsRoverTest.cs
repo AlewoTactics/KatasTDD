@@ -101,5 +101,15 @@ public class MarsRoverTest
         marsRovers.ObtenerUbicacion().Should().Be("0:0:W");
     }
     
+    [Fact]
+    public void Debe_mantener_el_norte_si_gira_cuatro_izquierdas()
+    {
+        //arrange
+        var marsRovers = new MarsRover();
+        //act
+        marsRovers.RealizarMovimientos("LLLL");
+        //assert
+        marsRovers.ObtenerUbicacion().Should().Be("0:0:N");
+    }
     
 }
