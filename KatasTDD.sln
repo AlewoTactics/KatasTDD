@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KatasTDD", "KatasTDD\KatasTDD.csproj", "{35689DE4-9838-4718-9217-4F9881CF7213}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{17AD3B0C-6FA9-47AA-AE7B-42CF54F832B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{F80CAC82-64FE-4FE1-986A-7DF603A5C9B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +10,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{35689DE4-9838-4718-9217-4F9881CF7213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35689DE4-9838-4718-9217-4F9881CF7213}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35689DE4-9838-4718-9217-4F9881CF7213}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35689DE4-9838-4718-9217-4F9881CF7213}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17AD3B0C-6FA9-47AA-AE7B-42CF54F832B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17AD3B0C-6FA9-47AA-AE7B-42CF54F832B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17AD3B0C-6FA9-47AA-AE7B-42CF54F832B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17AD3B0C-6FA9-47AA-AE7B-42CF54F832B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F80CAC82-64FE-4FE1-986A-7DF603A5C9B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F80CAC82-64FE-4FE1-986A-7DF603A5C9B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F80CAC82-64FE-4FE1-986A-7DF603A5C9B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F80CAC82-64FE-4FE1-986A-7DF603A5C9B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
