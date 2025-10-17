@@ -68,7 +68,7 @@ public class MarsRoverTest
     }
     
     [Fact]
-    public void Si_Ingreso_UnMovimiento_y_un_giro_debe_retornar_Cero_Uno_Este()
+    public void Si_Ingreso_UnMovimiento_y_un_giroDerecha_debe_retornar_Cero_Uno_Este()
     {
         //arrange
         var marsRovers = new MarsRover();

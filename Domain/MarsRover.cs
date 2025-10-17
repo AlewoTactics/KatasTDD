@@ -1,22 +1,21 @@
 ﻿namespace Domain;
 
+public enum PuntosCardinales
+{
+    N = 0,
+    E = 1,
+    S = 2,
+    W = 3
+}
 
 
 public class MarsRover
 {
     private int PosicionX { get; set; } = 0;
     private int PosicionY { get; set; } = 0;
-    private int PuntoCardinal { get; set; } = 0;
+    private PuntosCardinales PuntoCardinal { get; set; } = 0;
     
-
-    private readonly Dictionary<int, char> _puntosCardinales = new ()
-    {
-        { 0, 'N' },
-        { 1, 'E' }, 
-        { 2, 'S' },
-        { 3, 'W' }
-    };
-    public string ObtenerUbicacion() =>  $"{PosicionX}:{PosicionY}:{_puntosCardinales[PuntoCardinal]}";
+    public string ObtenerUbicacion() =>  $"{PosicionX}:{PosicionY}:{PuntoCardinal}";
     
     public void RealizarMovimientos(string movimiento)
     {
@@ -34,13 +33,17 @@ public class MarsRover
         const int limitePlataforma = 10;
         if (PosicionY >= limitePlataforma)
             PosicionY = 0;
-        if(PuntoCardinal == 0)    
+        if(PuntoCardinal.Equals(PuntosCardinales.N))    
             PosicionY++;
-        else if (PuntoCardinal == 2)
+        else if (PuntoCardinal.Equals(PuntosCardinales.S))
             PosicionY--;
     }
 
-    private void  GirarDerecha() => PuntoCardinal = (PuntoCardinal + 1) % 4;
+    private void GirarDerecha()
+    {
+        int puntoCardinal = ((int)PuntoCardinal + 1) % 4;
+        PuntoCardinal = (PuntosCardinales)puntoCardinal;
+    }
 
     private bool HayUnGiroALaDerecha(char movimientos) => movimientos.Equals('R');
 }
