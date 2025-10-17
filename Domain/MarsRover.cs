@@ -50,7 +50,10 @@ public class MarsRover
     
     private void GirarIzquierda()
     {
-        PuntoCardinal = (PuntosCardinales)3;
+        if (PuntoCardinal == 0)
+            PuntoCardinal = (PuntosCardinales)3;
+        else
+            PuntoCardinal --;
     }
 
     private bool HayUnGiroALaDerecha(char movimientos) => movimientos.Equals('R');
