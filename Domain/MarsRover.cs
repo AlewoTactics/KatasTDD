@@ -23,6 +23,8 @@ public class MarsRover
         {
             if (HayUnGiroALaDerecha(comando))
                 GirarDerecha();
+            else if (HayUnGiroALaIzquierda(comando))
+                GirarIzquierda();
             else
                 MoverY();
         }
@@ -44,6 +46,13 @@ public class MarsRover
         int puntoCardinal = ((int)PuntoCardinal + 1) % 4;
         PuntoCardinal = (PuntosCardinales)puntoCardinal;
     }
+    
+    
+    private void GirarIzquierda()
+    {
+        PuntoCardinal = (PuntosCardinales)3;
+    }
 
     private bool HayUnGiroALaDerecha(char movimientos) => movimientos.Equals('R');
+    private bool HayUnGiroALaIzquierda(char movimientos) => movimientos.Equals('L');
 }
