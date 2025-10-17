@@ -1,5 +1,7 @@
 ﻿namespace Domain;
 
+
+
 public class MarsRover
 {
     private int PosicionX { get; set; } = 0;
@@ -32,7 +34,10 @@ public class MarsRover
         const int limitePlataforma = 10;
         if (PosicionY >= limitePlataforma)
             PosicionY = 0;
-        PosicionY++;
+        if(PuntoCardinal == 0)    
+            PosicionY++;
+        else if (PuntoCardinal == 2)
+            PosicionY--;
     }
 
     private void  GirarDerecha() => PuntoCardinal = (PuntoCardinal + 1) % 4;
