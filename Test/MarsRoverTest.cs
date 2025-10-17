@@ -77,4 +77,15 @@ public class MarsRoverTest
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("0:1:E");
     }
+
+    [Fact]
+    public void Debe_quedarse_en_la_posicion_inicial_cuando_realiza_un_movimiento_dos_girosDerecha_y_movimiento()
+    {
+        //arrange
+        var marsRovers = new MarsRover();
+        //act
+        marsRovers.RealizarMovimientos("MRRM");
+        //assert
+        marsRovers.ObtenerUbicacion().Should().Be("0:0:S");
+    }
 }
