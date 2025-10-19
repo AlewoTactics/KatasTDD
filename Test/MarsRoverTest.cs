@@ -144,6 +144,18 @@ public class MarsRoverTest
         marsRovers.ObtenerUbicacion().Should().Be("0:9:S");
     }
     
+    
+    [Fact]
+    public void Debe_saltar_al_limite_derecho_si_pasa_limite_izquierdo()
+    {
+        //arrange
+        var marsRovers = new MarsRover();
+        //act
+        marsRovers.RealizarMovimientos("LM");
+        //assert
+        marsRovers.ObtenerUbicacion().Should().Be("9:0:W");
+    }
+    
     [Fact]
     public void Debe_moverse_en_el_eje_x_si_se_realiza_un_giro_a_la_izquierda()
     {
