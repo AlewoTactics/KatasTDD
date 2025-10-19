@@ -1,4 +1,6 @@
-﻿namespace Domain;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Domain;
 
 public enum PuntosCardinales
 {
@@ -33,6 +35,12 @@ public class MarsRover
     private void MoverY()
     {
         const int limitePlataforma = 10;
+        if (PuntoCardinal.Equals(PuntosCardinales.E))
+        {
+            PosicionX++;
+            return;
+        }
+
         if (PosicionY >= limitePlataforma)
             PosicionY = 0;
         if(PuntoCardinal.Equals(PuntosCardinales.N))    

@@ -107,7 +107,7 @@ public class MarsRoverTest
         //act
         marsRovers.RealizarMovimientos("RM");
         //assert
-        marsRovers.ObtenerUbicacion().Should().Be("0:1:E");
+        marsRovers.ObtenerUbicacion().Should().Be("1:0:E");
     }
 
 }
