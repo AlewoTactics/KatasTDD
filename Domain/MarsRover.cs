@@ -63,6 +63,9 @@ public class MarsRover
             {
                 if (PosicionY > limitePlataforma)
                     PosicionY = 0;
+                if (PosicionY < 0)
+                    PosicionY = limitePlataforma;
+                
                 break;
             }
         }
