@@ -85,5 +85,16 @@ public class MarsRoverTest
         //assert
         marsRovers.ObtenerUbicacion().Should().Be(resultado); 
     }
+
+    [Fact]
+    public void Debe_ejecutar_comandos_sin_importar_minusculas_o_mayusculas()
+    {
+        //arrange
+        var marsRovers = new MarsRover();
+        //act
+        marsRovers.EjecutarComandos("mmmmml");
+        //assert
+        marsRovers.ObtenerUbicacion().Should().Be("0:5:W");
+    }
     
 }
