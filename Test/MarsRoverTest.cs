@@ -109,5 +109,16 @@ public class MarsRoverTest
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("1:0:E");
     }
+    
+    [Fact]
+    public void Debe_volver_a_la_posicion_inicial_si_pasa_el_limite_derecho()
+    {
+        //arrange
+        var marsRovers = new MarsRover();
+        //act
+        marsRovers.RealizarMovimientos("RMMMMMMMMMM");
+        //assert
+        marsRovers.ObtenerUbicacion().Should().Be("0:0:E");
+    }
 
 }
