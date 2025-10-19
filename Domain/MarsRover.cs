@@ -28,30 +28,44 @@ public class MarsRover
             else if (HayUnGiroALaIzquierda(comando))
                 GirarIzquierda();
             else
-                MoverY();
+                Desplazamiento();
         }
     }
 
-    private void MoverY()
+    private void Desplazamiento()
     {
         const int limitePlataforma = 9;
-        if (PuntoCardinal.Equals(PuntosCardinales.E) ||  PuntoCardinal.Equals(PuntosCardinales.W))
+        switch (PuntoCardinal)
         {
-            if (PosicionX > limitePlataforma)
-                PosicionX = 0;
-            else if(PuntoCardinal.Equals(PuntosCardinales.E))
+            case PuntosCardinales.E:
                 PosicionX++;
-            else
+                break;
+            case PuntosCardinales.W:
                 PosicionX--;
-            return;
+                break;
+            case PuntosCardinales.N:
+                PosicionY++;
+                break;
+            case PuntosCardinales.S:
+                PosicionY--;
+                break;
         }
 
-        if (PosicionY >= limitePlataforma)
-            PosicionY = 0;
-        if(PuntoCardinal.Equals(PuntosCardinales.N))    
-            PosicionY++;
-        else if (PuntoCardinal.Equals(PuntosCardinales.S))
-            PosicionY--;
+        switch (PuntoCardinal)
+        {
+            case PuntosCardinales.E or PuntosCardinales.W:
+            {
+                if (PosicionX > limitePlataforma)
+                    PosicionX = 0;
+                break;
+            }
+            case PuntosCardinales.N or PuntosCardinales.S:
+            {
+                if (PosicionY > limitePlataforma)
+                    PosicionY = 0;
+                break;
+            }
+        }
     }
 
     private void GirarDerecha()
