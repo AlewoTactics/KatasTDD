@@ -120,5 +120,16 @@ public class MarsRoverTest
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("0:0:E");
     }
+    
+    [Fact]
+    public void Debe_moverse_en_el_eje_x_si_se_realiza_un_giro_a_la_izquierda()
+    {
+        //arrange
+        var marsRovers = new MarsRover();
+        //act
+        marsRovers.RealizarMovimientos("RMLLM");
+        //assert
+        marsRovers.ObtenerUbicacion().Should().Be("0:0:W");
+    }
 
 }
