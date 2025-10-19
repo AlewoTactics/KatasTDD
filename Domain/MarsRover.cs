@@ -19,9 +19,9 @@ public class MarsRover
     
     public string ObtenerUbicacion() =>  $"{PosicionX}:{PosicionY}:{PuntoCardinal}";
     
-    public void RealizarMovimientos(string movimiento)
+    public void EjecutarComandos(string comandos)
     {
-        foreach (var comando in movimiento)
+        foreach (var comando in comandos)
         {
             if (HayUnGiroALaDerecha(comando))
                 GirarDerecha();
@@ -78,13 +78,10 @@ public class MarsRover
         PuntoCardinal = (PuntosCardinales)puntoCardinal;
     }
     
-    
     private void GirarIzquierda()
     {
-        if (PuntoCardinal == 0)
-            PuntoCardinal = (PuntosCardinales)3;
-        else
-            PuntoCardinal --;
+        int puntoCardinal = ((int)PuntoCardinal + 3) % 4;
+        PuntoCardinal = (PuntosCardinales)puntoCardinal;
     }
 
     private bool HayUnGiroALaDerecha(char movimientos) => movimientos.Equals('R');

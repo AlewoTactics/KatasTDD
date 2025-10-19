@@ -18,45 +18,29 @@ public class MarsRoverTest
         //arrange
         var marsRovers = new MarsRover();
         //act
-        marsRovers.RealizarMovimientos(movimiento);
+        marsRovers.EjecutarComandos(movimiento);
         //assert
         marsRovers.ObtenerUbicacion().Should().Be(coordenadaEsperada);
     }
 
-    [Fact]
-    public void Si_Ingreso_Derecha_Mirando_Al_Norte_Debe_Retornar_La_Coordenada_Cero_Cero_Este()
+    [Theory]
+    [InlineData("L", "0:0:W")]
+    [InlineData("LLLL", "0:0:N")]
+    [InlineData("RRRRR", "0:0:E")]
+    [InlineData("RRR", "0:0:W")]
+    [InlineData("LLRR", "0:0:N")]
+    [InlineData("R", "0:0:E")]
+    [InlineData("RR", "0:0:S")]
+    [InlineData("RRR", "0:0:W")]
+    public void Debe_mantener_posicion_actual_y_apuntar_correctamente_segun_direccion_de_giros(string comando, string resultado)
     {
         //arrange
         var marsRovers = new MarsRover();
         //act
-        marsRovers.RealizarMovimientos("R");
+        marsRovers.EjecutarComandos(comando);
         //assert
-        marsRovers.ObtenerUbicacion().Should().Be("0:0:E");
+        marsRovers.ObtenerUbicacion().Should().Be(resultado);
     }
-
-    [Fact]
-    public void Si_Ingreso_Dos_Giros_A_La_Derecha_Debe_Retornar_La_Coordenada_Cero_Cero_Sur()
-    {
-        //arrange
-        var marsRovers = new MarsRover();
-        //act
-        marsRovers.RealizarMovimientos("RR");
-        //assert
-        marsRovers.ObtenerUbicacion().Should().Be("0:0:S");
-    }
-    
-    [Fact]
-    public void Si_Ingreso_Tres_Giros_A_La_Derecha_Debe_Retornar_La_Coordenada_Cero_Cero_Oeste()
-    {
-        //arrange
-        var marsRovers = new MarsRover();
-        
-        //act
-        marsRovers.RealizarMovimientos("RRR");
-        //assert
-        marsRovers.ObtenerUbicacion().Should().Be("0:0:W");
-    }
-    
 
     
     [Fact]
@@ -65,7 +49,7 @@ public class MarsRoverTest
         //arrange
         var marsRovers = new MarsRover();
         //act
-        marsRovers.RealizarMovimientos("MR");
+        marsRovers.EjecutarComandos("MR");
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("0:1:E");
     }
@@ -76,28 +60,13 @@ public class MarsRoverTest
         //arrange
         var marsRovers = new MarsRover();
         //act
-        marsRovers.RealizarMovimientos("MRRM");
+        marsRovers.EjecutarComandos("MRRM");
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("0:0:S");
     }
     
     
 
-    [Theory]
-    [InlineData("L", "0:0:W")]
-    [InlineData("LLLL", "0:0:N")]
-    [InlineData("RRRRR", "0:0:E")]
-    [InlineData("RRR", "0:0:W")]
-    [InlineData("LLRR", "0:0:N")]
-    public void Debe_mantener_posicion_actual_y_apuntar_correctamente_segun_direccion_de_giros(string comando, string resultado)
-    {
-        //arrange
-        var marsRovers = new MarsRover();
-        //act
-        marsRovers.RealizarMovimientos(comando);
-        //assert
-        marsRovers.ObtenerUbicacion().Should().Be(resultado);
-    }
 
     [Fact]
     public void Debe_moverse_en_el_eje_x_si_se_realiza_un_giro_a_la_derecha()
@@ -105,7 +74,7 @@ public class MarsRoverTest
         //arrange
         var marsRovers = new MarsRover();
         //act
-        marsRovers.RealizarMovimientos("RM");
+        marsRovers.EjecutarComandos("RM");
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("1:0:E");
     }
@@ -116,7 +85,7 @@ public class MarsRoverTest
         //arrange
         var marsRovers = new MarsRover();
         //act
-        marsRovers.RealizarMovimientos("RMMMMMMMMMM");
+        marsRovers.EjecutarComandos("RMMMMMMMMMM");
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("0:0:E");
     }
@@ -130,7 +99,7 @@ public class MarsRoverTest
         //arrange
         var marsRovers = new MarsRover();
         //act
-        marsRovers.RealizarMovimientos("LLM");
+        marsRovers.EjecutarComandos("LLM");
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("0:9:S");
     }
@@ -142,7 +111,7 @@ public class MarsRoverTest
         //arrange
         var marsRovers = new MarsRover();
         //act
-        marsRovers.RealizarMovimientos("LM");
+        marsRovers.EjecutarComandos("LM");
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("9:0:W");
     }
@@ -153,7 +122,7 @@ public class MarsRoverTest
         //arrange
         var marsRovers = new MarsRover();
         //act
-        marsRovers.RealizarMovimientos("RMLLM");
+        marsRovers.EjecutarComandos("RMLLM");
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("0:0:W");
     }
