@@ -10,9 +10,9 @@ public enum PuntosCardinales
     W = 3
 }
 
-
 public class MarsRover
 {
+    private const int LimitePlataforma = 9;
     private int PosicionX { get; set; } = 0;
     private int PosicionY { get; set; } = 0;
     private PuntosCardinales PuntoCardinal { get; set; } = 0;
@@ -36,7 +36,6 @@ public class MarsRover
     
     private void Desplazamiento()
     {
-        const int limitePlataforma = 9;
         switch (PuntoCardinal)
         {
             case PuntosCardinales.E:
@@ -52,27 +51,32 @@ public class MarsRover
                 PosicionY--;
                 break;
         }
+        RestablecerCoordenadas();
+    }
 
+    private void RestablecerCoordenadas()
+    {
         switch (PuntoCardinal)
         {
             case PuntosCardinales.E or PuntosCardinales.W:
             {
-                if (PosicionX > limitePlataforma  )
+                if (PosicionX > LimitePlataforma  )
                     PosicionX = 0;
                 if(PosicionX < 0)
-                    PosicionX = limitePlataforma;
+                    PosicionX = LimitePlataforma;
                 break;
             }
             case PuntosCardinales.N or PuntosCardinales.S:
             {
-                if (PosicionY > limitePlataforma)
+                if (PosicionY > LimitePlataforma)
                     PosicionY = 0;
                 if (PosicionY < 0)
-                    PosicionY = limitePlataforma;
+                    PosicionY = LimitePlataforma;
                 break;
             }
         }
     }
+
 
     private void GirarDerecha()
     {
