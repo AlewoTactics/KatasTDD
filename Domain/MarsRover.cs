@@ -59,22 +59,21 @@ public class MarsRover
         switch (PuntoCardinal)
         {
             case PuntosCardinales.E or PuntosCardinales.W:
-            {
-                if (PosicionX > LimitePlataforma  )
-                    PosicionX = 0;
-                if(PosicionX < 0)
-                    PosicionX = LimitePlataforma;
+                PosicionX = NormalizarCoordenada(PosicionX);
                 break;
-            }
             case PuntosCardinales.N or PuntosCardinales.S:
-            {
-                if (PosicionY > LimitePlataforma)
-                    PosicionY = 0;
-                if (PosicionY < 0)
-                    PosicionY = LimitePlataforma;
+                PosicionY = NormalizarCoordenada(PosicionY);
                 break;
-            }
         }
+    }
+
+    private int NormalizarCoordenada(int coordenada)
+    {
+        if (coordenada > LimitePlataforma)
+            return 0;
+        if (coordenada < 0)
+            return LimitePlataforma;
+        return coordenada;
     }
 
 
