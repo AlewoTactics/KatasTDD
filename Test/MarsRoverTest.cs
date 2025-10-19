@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using System.Runtime.CompilerServices;
+using Domain;
 using FluentAssertions;
 
 namespace Test;
@@ -56,16 +57,7 @@ public class MarsRoverTest
         marsRovers.ObtenerUbicacion().Should().Be("0:0:W");
     }
     
-    [Fact]
-    public void Si_Ingreso_Cinco_Giros_A_La_Derecha_Debe_Retornar_La_Coordenada_Cero_Cero_Este()
-    {
-        //arrange
-        var marsRovers = new MarsRover();
-        //act
-        marsRovers.RealizarMovimientos("RRRRR");
-        //assert
-        marsRovers.ObtenerUbicacion().Should().Be("0:0:E");
-    }
+
     
     [Fact]
     public void Si_Ingreso_UnMovimiento_y_un_giroDerecha_debe_retornar_Cero_Uno_Este()
@@ -89,27 +81,23 @@ public class MarsRoverTest
         marsRovers.ObtenerUbicacion().Should().Be("0:0:S");
     }
     
+    
 
-    [Fact]
-    public void Debe_Girar_Izquierda()
+    [Theory]
+    [InlineData("L", "0:0:W")]
+    [InlineData("LLLL", "0:0:N")]
+    [InlineData("RRRRR", "0:0:E")]
+    [InlineData("RRR", "0:0:W")]
+    [InlineData("LLRR", "0:0:N")]
+    public void Debe_mantener_posicion_actual_y_apuntar_correctamente_segun_direccion_de_giros(string comando, string resultado)
     {
         //arrange
         var marsRovers = new MarsRover();
         //act
-        marsRovers.RealizarMovimientos("L");
+        marsRovers.RealizarMovimientos(comando);
         //assert
-        marsRovers.ObtenerUbicacion().Should().Be("0:0:W");
+        marsRovers.ObtenerUbicacion().Should().Be(resultado);
     }
     
-    [Fact]
-    public void Debe_mantener_el_norte_si_gira_cuatro_izquierdas()
-    {
-        //arrange
-        var marsRovers = new MarsRover();
-        //act
-        marsRovers.RealizarMovimientos("LLLL");
-        //assert
-        marsRovers.ObtenerUbicacion().Should().Be("0:0:N");
-    }
     
 }
