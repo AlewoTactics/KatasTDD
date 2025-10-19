@@ -97,4 +97,14 @@ public class MarsRoverTest
         marsRovers.ObtenerUbicacion().Should().Be("0:5:W");
     }
     
+    [Fact]
+    public void Debe_generar_excepcion_cuando_no_sea_un_comando_valido()
+    {
+        //arrange
+        var marsRovers = new MarsRover();
+        //act
+        Action act = () => marsRovers.EjecutarComandos("3rr0r");
+        //assert
+        act.Should().Throw<Exception>().WithMessage("No es posible procesar el comando ya que se encontraron acciones no validas.");
+    }
 }
