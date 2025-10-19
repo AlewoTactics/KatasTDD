@@ -84,7 +84,7 @@ public class MarsRover
         PuntoCardinal = (PuntosCardinales)puntoCardinal;
     }
 
-    private bool HayUnGiroALaDerecha(char movimientos) => movimientos.Equals('R') || movimientos.Equals('r');
-    private bool HayUnGiroALaIzquierda(char movimientos) => movimientos.Equals('L') || movimientos.Equals('l');
+    private bool HayUnGiroALaDerecha(char comando) => comando.Equals('R') || comando.Equals('r');
+    private bool HayUnGiroALaIzquierda(char comando) => comando.Equals('L') || comando.Equals('l');
     private bool HayUnMovimiento(char comando) => comando.Equals('M') || comando.Equals('m');
 }
