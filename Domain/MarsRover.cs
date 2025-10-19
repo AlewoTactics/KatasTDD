@@ -34,10 +34,13 @@ public class MarsRover
 
     private void MoverY()
     {
-        const int limitePlataforma = 10;
+        const int limitePlataforma = 9;
         if (PuntoCardinal.Equals(PuntosCardinales.E))
         {
-            PosicionX++;
+            if (PosicionX > limitePlataforma)
+                PosicionX = 0;
+            else
+                PosicionX++;
             return;
         }
 

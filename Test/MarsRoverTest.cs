@@ -11,7 +11,7 @@ public class MarsRoverTest
     [InlineData("M", "0:1:N")]
     [InlineData("MM", "0:2:N")]
     [InlineData("MMM", "0:3:N")]
-    [InlineData("MMMMMMMMMMMMM", "0:3:N")]
+    [InlineData("MMMMMMMMMMMM", "0:3:N")]
     public void Si_Ingreso_Movimientos_Desde_El_Origen_Mirando_Al_norte_debe_retornarLaCoordenada(string movimiento,
         string coordenadaEsperada)
     {
@@ -116,7 +116,7 @@ public class MarsRoverTest
         //arrange
         var marsRovers = new MarsRover();
         //act
-        marsRovers.RealizarMovimientos("RMMMMMMMMMM");
+        marsRovers.RealizarMovimientos("RMMMMMMMMMMM");
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("0:0:E");
     }
