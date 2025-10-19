@@ -27,11 +27,11 @@ public class MarsRover
                 GirarDerecha();
             else if (HayUnGiroALaIzquierda(comando))
                 GirarIzquierda();
-            else
+            else if(HayUnMovimiento(comando))   
                 Desplazamiento();
         }
     }
-
+    
     private void Desplazamiento()
     {
         const int limitePlataforma = 9;
@@ -84,6 +84,7 @@ public class MarsRover
         PuntoCardinal = (PuntosCardinales)puntoCardinal;
     }
 
-    private bool HayUnGiroALaDerecha(char movimientos) => movimientos.Equals('R');
-    private bool HayUnGiroALaIzquierda(char movimientos) => movimientos.Equals('L');
+    private bool HayUnGiroALaDerecha(char movimientos) => movimientos.Equals('R') || movimientos.Equals('r');
+    private bool HayUnGiroALaIzquierda(char movimientos) => movimientos.Equals('L') || movimientos.Equals('l');
+    private bool HayUnMovimiento(char comando) => comando.Equals('M') || comando.Equals('m');
 }
