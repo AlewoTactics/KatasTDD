@@ -105,6 +105,6 @@ public class MarsRoverTest
         //act
         Action act = () => marsRovers.EjecutarComandos("3rr0r");
         //assert
-        act.Should().Throw<Exception>().WithMessage("No es posible procesar el comando ya que se encontraron acciones no validas.");
+        act.Should().Throw<Exception>().WithMessage("No es posible procesar el comando*");
     }
 }

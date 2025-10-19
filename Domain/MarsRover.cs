@@ -29,6 +29,8 @@ public class MarsRover
                 GirarIzquierda();
             else if(HayUnMovimiento(comando))   
                 Desplazamiento();
+            else
+                throw new Exception($"No es posible procesar el comando {comando}");
         }
     }
     
