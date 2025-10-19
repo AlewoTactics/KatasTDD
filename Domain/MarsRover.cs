@@ -77,15 +77,13 @@ public class MarsRover
     }
 
 
-    private void GirarDerecha()
+    private void GirarDerecha() => Girar(1);
+
+    private void GirarIzquierda() => Girar(-1);
+
+    private void Girar(int direccion)
     {
-        int puntoCardinal = ((int)PuntoCardinal + 1) % 4;
-        PuntoCardinal = (PuntosCardinales)puntoCardinal;
-    }
-    
-    private void GirarIzquierda()
-    {
-        int puntoCardinal = ((int)PuntoCardinal + 3) % 4;
+        int puntoCardinal = ((int)PuntoCardinal + direccion + 4) % 4;
         PuntoCardinal = (PuntosCardinales)puntoCardinal;
     }
 
