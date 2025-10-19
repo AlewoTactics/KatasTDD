@@ -132,6 +132,17 @@ public class MarsRoverTest
         //assert
         marsRovers.ObtenerUbicacion().Should().Be("0:0:W");
     }
+
+    [Fact]
+    public void Debe_saltar_al_limite_superior_si_pasa_limite_inferior()
+    {
+        //arrange
+        var marsRovers = new MarsRover();
+        //act
+        marsRovers.RealizarMovimientos("LLM");
+        //assert
+        marsRovers.ObtenerUbicacion().Should().Be("0:9:S");
+    }
     
     [Fact]
     public void Debe_moverse_en_el_eje_x_si_se_realiza_un_giro_a_la_izquierda()
