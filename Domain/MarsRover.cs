@@ -23,14 +23,25 @@ public class MarsRover
     {
         foreach (var comando in comandos)
         {
-            if (HayUnGiroALaDerecha(comando))
+            ProcesarComando(char.ToUpper(comando));
+        }
+    }
+
+    private void ProcesarComando(char comando)
+    {
+        switch (comando)
+        {
+            case 'R':
                 GirarDerecha();
-            else if (HayUnGiroALaIzquierda(comando))
+                break;
+            case 'L':
                 GirarIzquierda();
-            else if(HayUnMovimiento(comando))   
+                break;
+            case 'M':
                 Desplazamiento();
-            else
-                throw new Exception($"No es posible procesar el comando {comando}");
+                break;
+            default:
+                throw new Exception("No es posible procesar el comando ya que se encontraron acciones no validas.");
         }
     }
     
@@ -86,8 +97,4 @@ public class MarsRover
         int puntoCardinal = ((int)PuntoCardinal + direccion + 4) % 4;
         PuntoCardinal = (PuntosCardinales)puntoCardinal;
     }
-
-    private bool HayUnGiroALaDerecha(char comando) => char.ToUpper(comando) == 'R';
-    private bool HayUnGiroALaIzquierda(char comando) => char.ToUpper(comando) == 'L';
-    private bool HayUnMovimiento(char comando) => char.ToUpper(comando) == 'M';
 }
