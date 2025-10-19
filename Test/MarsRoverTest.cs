@@ -31,7 +31,6 @@ public class MarsRoverTest
     [InlineData("M", "0:1:N")]
     [InlineData("MM", "0:2:N")]
     [InlineData("MMM", "0:3:N")]
-    [InlineData("MMMMMMMMMMMM", "0:2:N")]
     public void Debe_desplazarse_correctamente_sobre_el_ejeY(string movimiento,
         string coordenadaEsperada)
     {
@@ -71,40 +70,20 @@ public class MarsRoverTest
         //assert
         marsRovers.ObtenerUbicacion().Should().Be(resultado);
     }
-    
-    
-    [Fact]
-    public void Debe_volver_a_la_posicion_inicial_si_pasa_el_limite_derecho()
+
+    [Theory]
+    [InlineData("RMMMMMMMMMM", "0:0:E")]
+    [InlineData("LLM", "0:9:S")]
+    [InlineData("LM", "9:0:W")]
+    [InlineData("MMMMMMMMMMMM", "0:2:N")]
+    public void Debe_saltar_correctamente_a_la_posicion_indicada_despues_de_un_limite_de_plataforma(string comandos,string resultado)
     {
         //arrange
         var marsRovers = new MarsRover();
         //act
-        marsRovers.EjecutarComandos("RMMMMMMMMMM");
+        marsRovers.EjecutarComandos(comandos);
         //assert
-        marsRovers.ObtenerUbicacion().Should().Be("0:0:E");
-    }
-    
-    [Fact]
-    public void Debe_saltar_al_limite_superior_si_pasa_limite_inferior()
-    {
-        //arrange
-        var marsRovers = new MarsRover();
-        //act
-        marsRovers.EjecutarComandos("LLM");
-        //assert
-        marsRovers.ObtenerUbicacion().Should().Be("0:9:S");
-    }
-    
-    
-    [Fact]
-    public void Debe_saltar_al_limite_derecho_si_pasa_limite_izquierdo()
-    {
-        //arrange
-        var marsRovers = new MarsRover();
-        //act
-        marsRovers.EjecutarComandos("LM");
-        //assert
-        marsRovers.ObtenerUbicacion().Should().Be("9:0:W");
+        marsRovers.ObtenerUbicacion().Should().Be(resultado); 
     }
     
 }
