@@ -998,23 +998,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\danie\\.nuget\\packages\\": {},
+    "C:\\Users\\daniel.melo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\danie\\Documents\\Cosmos\\Katas\\KatasTDD\\Test\\Test.csproj",
+      "projectUniqueName": "C:\\Users\\daniel.melo\\Documents\\Cosmos\\KatasTDD\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "C:\\Users\\danie\\Documents\\Cosmos\\Katas\\KatasTDD\\Test\\Test.csproj",
-      "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\danie\\Documents\\Cosmos\\Katas\\KatasTDD\\Test\\obj\\",
+      "projectPath": "C:\\Users\\daniel.melo\\Documents\\Cosmos\\KatasTDD\\Test\\Test.csproj",
+      "packagesPath": "C:\\Users\\daniel.melo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\daniel.melo\\Documents\\Cosmos\\KatasTDD\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\daniel.melo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1022,14 +1022,15 @@
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\danie\\Documents\\Cosmos\\Katas\\KatasTDD\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\danie\\Documents\\Cosmos\\Katas\\KatasTDD\\Domain\\Domain.csproj"
+            "C:\\Users\\daniel.melo\\Documents\\Cosmos\\KatasTDD\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\daniel.melo\\Documents\\Cosmos\\KatasTDD\\Domain\\Domain.csproj"
             }
           }
         }
@@ -1044,7 +1045,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -1087,7 +1088,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -55,7 +55,7 @@ public class MarsRover
         {
             case PuntosCardinales.E or PuntosCardinales.W:
             {
-                if (PosicionX > limitePlataforma)
+                if (PosicionX > limitePlataforma || PosicionX < 0)
                     PosicionX = 0;
                 break;
             }
