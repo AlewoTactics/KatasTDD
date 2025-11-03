@@ -10,12 +10,14 @@ public class RutinasMatutinasTest
         decimal horaActual = 6;
         var tarea = QueDeboHacerAhora(horaActual);
         tarea.Should().Be("Hacer ejercicio");
-        return;
-
-        string QueDeboHacerAhora(decimal horaActual1)
-        {
-        
-            throw new NotImplementedException();
-        }
     }
+
+
+    string QueDeboHacerAhora(decimal horaActual1)
+    {
+        if (horaActual1 >= 6 && horaActual1 <= 7)
+            return "Hacer ejercicio";
+        return "";
+    }
+    
 }
