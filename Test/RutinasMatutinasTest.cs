@@ -7,12 +7,15 @@ public class RutinasMatutinasTest
     [Fact]
     public void SI_SonEntre6Y7AM_Debe_RetornarHacerEjercicio()
     {
-        var tarea = QueDeboHacerAhora();
+        decimal horaActual = 6;
+        var tarea = QueDeboHacerAhora(horaActual);
         tarea.Should().Be("Hacer ejercicio");
-    }
+        return;
 
-    private string QueDeboHacerAhora()
-    {
-        throw new NotImplementedException();
+        string QueDeboHacerAhora(decimal horaActual1)
+        {
+        
+            throw new NotImplementedException();
+        }
     }
 }
