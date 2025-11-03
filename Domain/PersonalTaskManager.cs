@@ -12,7 +12,7 @@ public class PersonalTaskManager
     public string QueDeboHacerAhora()
     {
         TimeSpan horaInicio = new TimeSpan(6, 0, 0); 
-        TimeSpan horaFin = new TimeSpan(7, 0, 0);
+        TimeSpan horaFin = new TimeSpan(6, 59, 0);
         if (_horaActual >= horaInicio && _horaActual <= horaFin)
             return "Hacer ejercicio";
         return "";
