@@ -11,10 +11,17 @@ public class PersonalTaskManager
     
     public string QueDeboHacerAhora()
     {
-        TimeSpan horaInicio = new TimeSpan(6, 0, 0); 
-        TimeSpan horaFin = new TimeSpan(6, 59, 0);
-        if (_horaActual >= horaInicio && _horaActual <= horaFin)
-            return "Hacer ejercicio";
+        TimeSpan horaInicio6 = new TimeSpan(6, 0, 0); 
+        TimeSpan horaFin6 = new TimeSpan(6, 59, 0);
+        
+        TimeSpan horaInicio7 = new TimeSpan(7, 0, 0); 
+        TimeSpan horaFin7 = new TimeSpan(7, 59, 0);
+        if (_horaActual >= horaInicio6 && _horaActual <= horaFin6)
+            return "Hacer ejercicio"; 
+        
+        if (_horaActual >= horaInicio7 && _horaActual <= horaFin7)
+            return "Leer y estudiar";
+        
         return "";
     }
 }
