@@ -16,6 +16,15 @@ public class RutinasMatutinasTest
     }
     
     
+    [Fact]
+    public void SI_SonEntre7Y7H59mAM_Debe_RetornarLeeryestudiar()
+    {
+        TimeSpan horaActual = new TimeSpan(7, 0, 0);
+        var personalTaskManager = new PersonalTaskManager(horaActual);
+        personalTaskManager.QueDeboHacerAhora().Should().Be("Leer y estudiar");
+    }
+    
+    
 
     
     
