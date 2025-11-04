@@ -32,6 +32,13 @@ public class RutinasMatutinasTest
         personalTaskManager.QueDeboHacerAhora().Should().Be("Desayunar");
     }
 
+    [Fact]
+    public void SI_NoHayTareasASignadasEnHorario_debe_RetornarSinActividad()
+    {
+        TimeSpan horaActual = new TimeSpan(9, 0, 0);
+        var personalTaskManager = new PersonalTaskManager(horaActual);
+        personalTaskManager.QueDeboHacerAhora().Should().Be("Sin actividad");
+    }
 
     
     
