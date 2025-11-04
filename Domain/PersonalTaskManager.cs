@@ -25,7 +25,7 @@ public class PersonalTaskManager
                 return tarea.nombre;
         }
         
-        return "";
+        return "Sin actividad";
     }
 }
 
