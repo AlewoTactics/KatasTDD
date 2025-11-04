@@ -10,31 +10,43 @@ public enum PuntosCardinales
     W = 3
 }
 
-
 public class MarsRover
 {
+    private const int LimitePlataforma = 9;
     private int PosicionX { get; set; } = 0;
     private int PosicionY { get; set; } = 0;
     private PuntosCardinales PuntoCardinal { get; set; } = 0;
     
     public string ObtenerUbicacion() =>  $"{PosicionX}:{PosicionY}:{PuntoCardinal}";
     
-    public void RealizarMovimientos(string movimiento)
+    public void EjecutarComandos(string comandos)
     {
-        foreach (var comando in movimiento)
+        foreach (var comando in comandos)
         {
-            if (HayUnGiroALaDerecha(comando))
-                GirarDerecha();
-            else if (HayUnGiroALaIzquierda(comando))
-                GirarIzquierda();
-            else
-                Desplazamiento();
+            ProcesarComando(char.ToUpper(comando));
         }
     }
 
+    private void ProcesarComando(char comando)
+    {
+        switch (comando)
+        {
+            case 'R':
+                GirarDerecha();
+                break;
+            case 'L':
+                GirarIzquierda();
+                break;
+            case 'M':
+                Desplazamiento();
+                break;
+            default:
+                throw new Exception("No es posible procesar el comando ya que se encontraron acciones no validas.");
+        }
+    }
+    
     private void Desplazamiento()
     {
-        const int limitePlataforma = 9;
         switch (PuntoCardinal)
         {
             case PuntosCardinales.E:
@@ -50,39 +62,39 @@ public class MarsRover
                 PosicionY--;
                 break;
         }
+        RestablecerCoordenadas();
+    }
 
+    private void RestablecerCoordenadas()
+    {
         switch (PuntoCardinal)
         {
             case PuntosCardinales.E or PuntosCardinales.W:
-            {
-                if (PosicionX > limitePlataforma)
-                    PosicionX = 0;
+                PosicionX = NormalizarCoordenada(PosicionX);
                 break;
-            }
             case PuntosCardinales.N or PuntosCardinales.S:
-            {
-                if (PosicionY > limitePlataforma)
-                    PosicionY = 0;
+                PosicionY = NormalizarCoordenada(PosicionY);
                 break;
-            }
         }
     }
 
-    private void GirarDerecha()
+    private int NormalizarCoordenada(int coordenada)
     {
-        int puntoCardinal = ((int)PuntoCardinal + 1) % 4;
-        PuntoCardinal = (PuntosCardinales)puntoCardinal;
-    }
-    
-    
-    private void GirarIzquierda()
-    {
-        if (PuntoCardinal == 0)
-            PuntoCardinal = (PuntosCardinales)3;
-        else
-            PuntoCardinal --;
+        if (coordenada > LimitePlataforma)
+            return 0;
+        if (coordenada < 0)
+            return LimitePlataforma;
+        return coordenada;
     }
 
-    private bool HayUnGiroALaDerecha(char movimientos) => movimientos.Equals('R');
-    private bool HayUnGiroALaIzquierda(char movimientos) => movimientos.Equals('L');
+
+    private void GirarDerecha() => Girar(1);
+
+    private void GirarIzquierda() => Girar(-1);
+
+    private void Girar(int direccion)
+    {
+        int puntoCardinal = ((int)PuntoCardinal + direccion + 4) % 4;
+        PuntoCardinal = (PuntosCardinales)puntoCardinal;
+    }
 }
