@@ -2,7 +2,7 @@
 
 public class PersonalTaskManager
 {
-    private TimeSpan _horaActual;
+    private TimeSpan _horaActual = DateTime.Now.TimeOfDay;
     private List<Tarea> _tareas;
 
     public PersonalTaskManager(List<Tarea> tareas)
@@ -10,7 +10,7 @@ public class PersonalTaskManager
         _tareas = tareas;
     }
 
-    public void AsignarHoraActual(TimeSpan horaACtual) => _horaActual = horaACtual;
+    public void AsignarHoraActual(TimeSpan horaActual) => _horaActual = horaActual;
     
     public string QueDeboHacerAhora()
     {
