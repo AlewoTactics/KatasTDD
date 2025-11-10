@@ -1,4 +1,6 @@
-﻿namespace Test;
+﻿using FluentAssertions;
+
+namespace Test;
 
 public class SuperMarketReceiptTest
 {
@@ -7,7 +9,7 @@ public class SuperMarketReceiptTest
     {
         var carrito = new Carrito();
         carrito.Agregar(new PastaDeDientes());
-        carrito.ObtenerValorTotal();
+        carrito.ObtenerValorTotal().Should().Be((decimal)0.99);
     }
 }
 
