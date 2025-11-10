@@ -28,5 +28,17 @@ public class SuperMarketReceiptTest
         carrito.Agregar(new Arroz());
         carrito.ObtenerValorTotal().Should().Be(2.49m);
     }
+    
+    [Fact]
+    public void SI_AgregotomatesCherry_Debe_Serelvalortotal0_69()
+    {
+        var carrito = new Carrito();
+        carrito.Agregar(new TomateCherry());
+        carrito.ObtenerValorTotal().Should().Be(0.69m);
+    }
+    
+    
 }
+
+
 

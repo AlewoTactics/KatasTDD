@@ -22,3 +22,8 @@ public class Arroz : Articulo
 {
     protected  override decimal valorUnidad => 2.49m;
 }
+
+public class TomateCherry : Articulo
+{
+    protected  override decimal valorUnidad => 0.69m;
+}
