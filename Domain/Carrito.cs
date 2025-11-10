@@ -2,15 +2,20 @@
 
 public class Carrito
 {
-    private Articulo _articulo;
-    
+    public List<Articulo> Articulos { get;private set; } = [];
+
     public void Agregar(Articulo articulo)
     {
-        _articulo = articulo;
+        Articulos.Add(articulo);
     }
 
     public decimal ObtenerValorTotal()
     {
-        return _articulo.ObtenerValor();
+        decimal valorTotal = 0;
+        foreach (var art in Articulos)
+        {
+            valorTotal += art.ObtenerValor();
+        }
+        return valorTotal;
     }
 }

@@ -38,6 +38,26 @@ public class SuperMarketReceiptTest
     }
     
     
+    [Fact]
+    public void SI_Agregomanzanayarroz_Debe_Serelvalortotal4_48()
+    {
+        var carrito = new Carrito();
+        carrito.Agregar(new Manzana());
+        carrito.Agregar(new Arroz());
+        carrito.ObtenerValorTotal().Should().Be(4.48m);
+    }
+    
+      
+    [Fact]
+    public void SI_AgregodosManzanas_Debe_Existir1ManzanaConCantidad2()
+    {
+        var carrito = new Carrito();
+        carrito.Agregar(new Manzana());
+        carrito.Agregar(new Manzana()); 
+        carrito.Articulos.Count().Should().Be(1);
+        carrito.Articulos.First().ObtenerCantidad().Should().Be(1);
+    }
+    
 }
 
 

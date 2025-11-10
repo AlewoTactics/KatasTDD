@@ -8,6 +8,13 @@ public abstract class Articulo
     {
         return valorUnidad;
     }
+
+    public int ObtenerCantidad()
+    {
+        return 0;
+    }
+    
+
 }
 public class PastaDeDientes: Articulo
 {
