@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Domain;
+using FluentAssertions;
 
 namespace Test;
 
@@ -28,46 +29,4 @@ public class SuperMarketReceiptTest
         carrito.ObtenerValorTotal().Should().Be(2.49m);
     }
 }
-
-
-
-public class Carrito
-{
-    private Articulo _articulo;
-
-
-    public void Agregar(Articulo articulo)
-    {
-        _articulo = articulo;
-    }
-
-    public decimal ObtenerValorTotal()
-    {
-        if (_articulo.GetType() == typeof(Manzana))
-            return 1.99m;
-        else if (_articulo.GetType() == typeof(Arroz))
-            return 2.49m;
-        else
-        {
-            return 0.99m;
-        }
-    }
-}
-
-public class PastaDeDientes: Articulo
-{
-  
-}
-public class Manzana : Articulo
-{
-}
-
-public class Arroz : Articulo
-{
-}
-
-public class Articulo
-{
-}
-
 
