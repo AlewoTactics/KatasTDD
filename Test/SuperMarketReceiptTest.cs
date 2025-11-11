@@ -71,7 +71,7 @@ public class SuperMarketReceiptTest
     public void SI_AgregoArroz_Debe_launidadDemedidaserBolsa()
     {
         var carrito = new Carrito();
-        carrito.Agregar(new Manzana());
+        carrito.Agregar(new Arroz());
         carrito.Articulos.First().UnidadDeMedida.Should().Be("Bolsa");
     }
     

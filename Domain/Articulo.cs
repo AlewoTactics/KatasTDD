@@ -25,7 +25,7 @@ public class Manzana : Articulo
 public class Arroz : Articulo
 {
     public  override decimal ValorUnidad => 2.49m;
-    public  override string UnidadDeMedida => string.Empty;
+    public  override string UnidadDeMedida => "Bolsa";
 }
 
 public class TomateCherry : Articulo
