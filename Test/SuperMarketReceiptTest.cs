@@ -87,7 +87,7 @@ public class SuperMarketReceiptTest
     public void SI_AgregoTotamesCherry_Debe_launidadDemedidaserCaja()
     {
         var carrito = new Carrito();
-        carrito.Agregar(new PastaDeDientes());
+        carrito.Agregar(new TomateCherry());
         carrito.Articulos.First().UnidadDeMedida.Should().Be("Caja");
     }
 }

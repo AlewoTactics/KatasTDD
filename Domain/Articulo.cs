@@ -31,5 +31,5 @@ public class Arroz : Articulo
 public class TomateCherry : Articulo
 {
     public  override decimal ValorUnidad => 0.69m;
-    public  override string UnidadDeMedida => string.Empty;
+    public  override string UnidadDeMedida => "Caja";
 }
