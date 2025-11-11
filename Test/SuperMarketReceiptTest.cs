@@ -75,6 +75,14 @@ public class SuperMarketReceiptTest
         carrito.Articulos.First().UnidadDeMedida.Should().Be("Bolsa");
     }
     
+    [Fact]
+    public void SI_AgregoPastaDeDientes_Debe_launidadDemedidaserUnidad()
+    {
+        var carrito = new Carrito();
+        carrito.Agregar(new PastaDeDientes());
+        carrito.Articulos.First().UnidadDeMedida.Should().Be("Unidad");
+    }
+    
 }
 
 
