@@ -63,7 +63,7 @@ public class SuperMarketReceiptTest
     {
         var carrito = new Carrito();
         carrito.Agregar(new Manzana());
-        carrito.Articulos.First().UnidadDeMedida.Should().Be("Kilo");
+        carrito.Articulos.First().UnidadDeMedida.Should().Be(UnidadDeMedida.Kilo);
     }
     
        
@@ -72,7 +72,7 @@ public class SuperMarketReceiptTest
     {
         var carrito = new Carrito();
         carrito.Agregar(new Arroz());
-        carrito.Articulos.First().UnidadDeMedida.Should().Be("Bolsa");
+        carrito.Articulos.First().UnidadDeMedida.Should().Be(UnidadDeMedida.Bolsa);
     }
     
     [Fact]
@@ -80,7 +80,7 @@ public class SuperMarketReceiptTest
     {
         var carrito = new Carrito();
         carrito.Agregar(new PastaDeDientes());
-        carrito.Articulos.First().UnidadDeMedida.Should().Be("Unidad");
+        carrito.Articulos.First().UnidadDeMedida.Should().Be(UnidadDeMedida.Unidad);
     }
     
     [Fact]
@@ -88,7 +88,7 @@ public class SuperMarketReceiptTest
     {
         var carrito = new Carrito();
         carrito.Agregar(new TomateCherry());
-        carrito.Articulos.First().UnidadDeMedida.Should().Be("Caja");
+        carrito.Articulos.First().UnidadDeMedida.Should().Be(UnidadDeMedida.Caja);
     }
 }
 
