@@ -55,7 +55,7 @@ public class SuperMarketReceiptTest
         carrito.Agregar(new Manzana());
         carrito.Agregar(new Manzana()); 
         carrito.Articulos.Count().Should().Be(1);
-        carrito.Articulos.First().ObtenerCantidad().Should().Be(2);
+        carrito.Articulos.First().Cantidad.Should().Be(2);
     }
     
     [Fact]

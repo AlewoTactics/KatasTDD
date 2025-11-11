@@ -18,7 +18,7 @@ public class Carrito
         decimal valorTotal = 0;
         foreach (var art in Articulos)
         {
-            valorTotal += art.ObtenerValor();
+            valorTotal += art.ValorUnidad;
         }
         return valorTotal;
     }
