@@ -3,7 +3,7 @@
 public abstract class Articulo
 {
     protected abstract decimal valorUnidad { get; }
-    public object UnidadDeMedida { get; set; }
+    public abstract string UnidadDeMedida  { get; }
 
     private int cantidad = 1;
     public decimal ObtenerValor()
@@ -20,27 +20,26 @@ public abstract class Articulo
     {
         cantidad++;
     }
-
-    public string ObtenerUnidadMedida()
-    {
-        throw new NotImplementedException();
-    }
 }
 public class PastaDeDientes: Articulo
 {
     protected  override decimal valorUnidad => 0.99m;
+    public  override string UnidadDeMedida => string.Empty;
 }
 public class Manzana : Articulo
 {
     protected  override decimal valorUnidad => 1.99m;
+    public  override string UnidadDeMedida => "Kilo";
 }
 
 public class Arroz : Articulo
 {
     protected  override decimal valorUnidad => 2.49m;
+    public  override string UnidadDeMedida => string.Empty;
 }
 
 public class TomateCherry : Articulo
 {
     protected  override decimal valorUnidad => 0.69m;
+    public  override string UnidadDeMedida => string.Empty;
 }
