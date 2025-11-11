@@ -14,7 +14,7 @@ public abstract class Articulo
 public class PastaDeDientes: Articulo
 {
     public  override decimal ValorUnidad => 0.99m;
-    public  override string UnidadDeMedida => string.Empty;
+    public  override string UnidadDeMedida => "Unidad";
 }
 public class Manzana : Articulo
 {
