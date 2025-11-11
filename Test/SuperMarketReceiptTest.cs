@@ -55,8 +55,17 @@ public class SuperMarketReceiptTest
         carrito.Agregar(new Manzana());
         carrito.Agregar(new Manzana()); 
         carrito.Articulos.Count().Should().Be(1);
-        carrito.Articulos.First().ObtenerCantidad().Should().Be(1);
+        carrito.Articulos.First().ObtenerCantidad().Should().Be(2);
     }
+    
+    [Fact]
+    public void SI_AgregoManzana_Debe_launidadDemedidaserKilo()
+    {
+        var carrito = new Carrito();
+        carrito.Agregar(new Manzana());
+        carrito.Articulos.First().UnidadDeMedida.Should().Be("Kilo");
+    }
+    
     
 }
 

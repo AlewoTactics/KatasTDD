@@ -3,7 +3,9 @@
 public abstract class Articulo
 {
     protected abstract decimal valorUnidad { get; }
-    
+    public object UnidadDeMedida { get; set; }
+
+    private int cantidad = 1;
     public decimal ObtenerValor()
     {
         return valorUnidad;
@@ -11,10 +13,18 @@ public abstract class Articulo
 
     public int ObtenerCantidad()
     {
-        return 0;
+        return cantidad;
     }
     
+    public void AgregarCantidad()
+    {
+        cantidad++;
+    }
 
+    public string ObtenerUnidadMedida()
+    {
+        throw new NotImplementedException();
+    }
 }
 public class PastaDeDientes: Articulo
 {

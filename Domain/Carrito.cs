@@ -6,7 +6,11 @@ public class Carrito
 
     public void Agregar(Articulo articulo)
     {
-        Articulos.Add(articulo);
+        var articuloExistente = Articulos.FirstOrDefault(art => art.GetType() == articulo.GetType());
+        if (articuloExistente == null)
+            Articulos.Add(articulo);
+        else
+            articuloExistente.AgregarCantidad();
     }
 
     public decimal ObtenerValorTotal()
